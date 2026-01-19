@@ -1,0 +1,246 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/breakpoints' as *;
+@use '@/shared/styles/mixins' as *;
+
+.section {
+  padding: $spacing-4xl 0;
+  background-color: $color-gray-100;
+  overflow: hidden;
+
+  @include mobile {
+    padding: $spacing-2xl 0;
+  }
+}
+
+.header {
+  @include container;
+  @include flex-between;
+  margin-bottom: $spacing-3xl;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-md;
+    text-align: center;
+  }
+}
+
+.title {
+  font-family: $font-family-poppins;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semibold;
+  margin: auto;
+  color: $color-gray-800;
+
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+.slider {
+  width: 100vw;
+  margin-left: -4.875rem;
+  cursor: grab;
+  user-select: none;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  @include mobile {
+    margin-left: -14rem;
+  }
+}
+
+.track {
+  display: flex;
+  gap: 2.5rem;
+  will-change: transform;
+  pointer-events: none;
+  padding-right: 2.5rem;
+
+  > * {
+    pointer-events: auto;
+  }
+
+  @include mobile {
+    gap: $spacing-lg;
+  }
+}
+
+.card {
+  flex-shrink: 0;
+  width: 17.5625rem;
+  background-color: $color-white;
+  padding: 0.875rem;
+  border-radius: 1.5rem;
+  box-shadow: 38px 12px 60px 0 rgba(199, 199, 199, 0.60);
+  transition: transform $transition-normal;
+
+  &:hover {
+    transform: translateY(-0.25rem);
+  }
+
+  @include mobile {
+    width: 16rem;
+  }
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background-color: $color-gray-200;
+  pointer-events: none;
+}
+
+.timer {
+  position: absolute;
+  top: 0.875rem;
+  right: 0.875rem;
+  background-color: rgba(28, 29, 32, 0.35);
+  backdrop-filter: blur(0.625rem);
+  color: $color-white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-family: $font-family-poppins;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  font-variant-numeric: tabular-nums;
+}
+
+.cardContent {
+  padding: $spacing-md 0.375rem 0.375rem;
+}
+
+.cardTitle {
+  font-family: $font-family-poppins;
+  font-size: 1.375rem;
+  font-weight: $font-weight-semibold;
+  color: $color-black;
+  @include truncate(1);
+  margin-bottom: $spacing-md;
+
+  @include mobile {
+    font-size: $font-size-lg;
+  }
+}
+
+.cardFooter {
+  @include flex-between;
+  align-items: flex-end;
+}
+
+.bid {
+  @include flex(flex-start, flex-start, column);
+}
+
+.bidLabel {
+  font-family: $font-family-poppins;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  color: $color-text-slate;
+  margin-bottom: 0.25rem;
+}
+
+.bidValue {
+  @include flex(flex-start, center);
+  gap: 0.25rem;
+  font-family: $font-family-poppins;
+  font-size: 1.03rem;
+  font-weight: $font-weight-medium;
+  color: $color-black;
+}
+
+.ethIcon {
+  flex-shrink: 0;
+}
+
+.placeBidButton {
+  width: 7.5rem;
+  height: 3.125rem;
+  border-radius: 0.75rem;
+  font-size: $font-size-sm;
+  text-transform: capitalize;
+}
+
+.navigation {
+  display: flex;
+  align-items: stretch;
+  margin-top: $spacing-xl;
+  background-color: $color-secondary;
+  border-radius: 1.078rem;
+  box-shadow: 0 43.117px 34.494px -25.87px rgba(15, 15, 15, 0.12);
+  width: fit-content;
+  height: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.navButton {
+  @include flex-center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.25rem 1.875rem;
+  transition: opacity $transition-normal;
+
+  &:hover:not(:disabled) {
+    opacity: 0.7;
+  }
+
+  &.disabled,
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.navDivider {
+  width: 0.125rem;
+  align-self: center;
+  height: 1.5rem;
+  background-color: $color-gray-250;
+  border-radius: 0.135rem;
+}
+
+.loading {
+  @include container;
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-4xl 0;
+  color: $color-gray-400;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.1875rem solid $color-gray-200;
+  border-top-color: $color-black;
+  border-radius: $radius-full;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  @include container;
+  text-align: center;
+  padding: $spacing-2xl 0;
+
+  p {
+    color: $color-gray-400;
+    margin-bottom: $spacing-md;
+  }
+
+  button {
+    @include button-primary;
+  }
+}

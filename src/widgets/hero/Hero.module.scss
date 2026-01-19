@@ -1,0 +1,335 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/breakpoints' as *;
+@use '@/shared/styles/mixins' as *;
+
+.hero {
+  padding: $spacing-4xl 0;
+  background-color: $color-white;
+  overflow: hidden;
+
+  @include mobile {
+    padding: $spacing-2xl 0 $spacing-5xl;
+  }
+}
+
+.container {
+  @include container;
+  @include flex(space-between, center);
+  gap: $spacing-3xl;
+  overflow: visible;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-2xl;
+  }
+}
+
+.content {
+  flex: 46;
+  max-width: 35.5rem;
+
+  @include mobile {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+.badge {
+  @include flex(flex-start, center);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  @include mobile {
+    justify-content: center;
+  }
+}
+
+.badgeLine {
+  display: block;
+  width: 8.625rem;
+  height: 1px;
+  background-color: rgba($color-gray-900, 0.5);
+
+  @include mobile {
+    width: 2.0625rem;
+    height: 2px;
+  }
+}
+
+.badgeText {
+  display: none;
+  font-family: $font-family-poppins;
+  font-size: 0.625rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  color: rgba($color-gray-900, 0.5);
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.title {
+  font-family: $font-family-poppins;
+  font-size: 4.75rem;
+  font-weight: $font-weight-semibold;
+  line-height: 5.25rem;
+  letter-spacing: -0.1875rem;
+  margin-bottom: $spacing-lg;
+  color: $color-black;
+  text-transform: capitalize;
+
+  @include mobile {
+    font-size: 3rem;
+    line-height: 3.375rem;
+    letter-spacing: -0.125rem;
+  }
+}
+
+.description {
+  font-family: $font-family-inter;
+  font-size: $font-size-lg;
+  color: $color-gray-450;
+  line-height: 1.75rem;
+  margin-bottom: $spacing-xl;
+  max-width: 30.6875rem;
+
+  @include mobile {
+    max-width: 100%;
+    font-size: $font-size-base;
+  }
+}
+
+.highlight {
+  color: $color-black;
+  font-weight: $font-weight-semibold;
+}
+
+.actions {
+  @include flex(flex-start, center);
+  gap: $spacing-md;
+  margin-bottom: $spacing-2xl;
+
+  @include mobile {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.exploreButton {
+  width: 11.25rem;
+  height: 3.75rem;
+  padding: 1.125rem 1.8125rem;
+  border-radius: 0.75rem;
+  text-transform: uppercase;
+  font-size: $font-size-base;
+  letter-spacing: 0.01em;
+
+  @include mobile {
+    width: 8rem;
+    height: 2.9375rem;
+    padding: 0.875rem 1rem;
+    border-radius: 0.625rem;
+    font-size: 0.7288rem;
+  }
+}
+
+.createButton {
+  width: 8.75rem;
+  height: 3.75rem;
+  padding: 1.125rem 1.3125rem;
+  border-radius: 0.75rem;
+  border-width: 2px;
+  text-transform: uppercase;
+  font-size: $font-size-base;
+  letter-spacing: 0.01em;
+
+  @include mobile {
+    width: 6.1875rem;
+    height: 2.9375rem;
+    padding: 0.875rem 1rem;
+    border-radius: 0.625rem;
+    border-width: 0.65px;
+    font-size: 0.7288rem;
+  }
+}
+
+.stats {
+  @include flex(flex-start, center);
+  gap: $spacing-2xl;
+
+  @include mobile {
+    justify-content: center;
+    gap: $spacing-lg;
+  }
+}
+
+.stat {
+  @include flex(flex-start, flex-start, column);
+
+  @include mobile {
+    align-items: center;
+  }
+}
+
+.statValue {
+  font-family: $font-family-public-sans;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semibold;
+  color: $color-black;
+  line-height: 1;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.statLabel {
+  font-family: $font-family-inter;
+  font-size: $font-size-sm;
+  color: $color-gray-400;
+  margin-top: $spacing-xs;
+}
+
+.images {
+  position: relative;
+  width: 48.75rem;
+  height: 33.9375rem;
+  margin-right: -3.3rem;
+  flex: 54;
+
+  @include mobile {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.44;
+    margin-right: 0;
+    max-width: 22rem;
+  }
+}
+
+.dotsTop,
+.dotsBottom {
+  position: absolute;
+  width: 10.8125rem;
+  height: 12rem;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.5) 1.5px, transparent 1.5px);
+  background-size: 1.1875rem 1.1875rem;
+  pointer-events: none;
+  left: 39rem;
+
+
+  @include tablet-only {
+    left: 25rem;
+  }
+}
+
+.dotsTop {
+  top: 0;
+
+  @include mobile {
+    left: 19rem;
+  }
+}
+
+.dotsBottom {
+  top: 13rem;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.cardLarge,
+.cardSmall {
+  position: absolute;
+}
+
+.cardShadow {
+  position: absolute;
+  inset: 0;
+  filter: blur(2.6rem);
+  opacity: 0.7;
+  border-radius: inherit;
+  overflow: hidden;
+  transform: translate(0, 1.5rem);
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.cardLarge {
+  width: 24.4375rem;
+  height: 24.6875rem;
+  left: 0;
+  top: 1.1875rem;
+  border-radius: 1.5625rem;
+  z-index: 2;
+
+  @include mobile {
+    width: 13rem;
+    height: 13.2rem;
+  }
+
+  @include tablet-only {
+    width: 17.5rem;
+    height: 18.5625rem;
+  }
+}
+
+.cardSmall {
+  width: 20rem;
+  height: 20.125rem;
+  left: 26.9375rem;
+  top: 12.5rem;
+  border-radius: 1.375rem;
+  z-index: 1;
+
+  @include tablet-only {
+    width: 14.4375rem;
+    height: 15.5rem;
+    left: 19rem;
+  }
+
+  @include mobile {
+    width: 10rem;
+    height: 10.1rem;
+    left: auto;
+    right: -4.5rem;
+    top: 8rem;
+  }
+}
+
+.arrow {
+  position: absolute;
+  width: 8.1875rem;
+  height: 8.4375rem;
+  left: 26.25rem;
+  top: 3rem;
+  transform: rotate(-93deg);
+  z-index: 3;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include tablet-only {
+    width: 5.75rem;
+    height: 5.5rem;
+    left: 18.25rem;
+    top: 4rem;
+  }
+
+  @include mobile {
+    width: 4.5rem;
+    height: 4.7rem;
+    top: 3rem;
+    left: 14rem;
+  }
+}

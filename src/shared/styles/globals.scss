@@ -1,0 +1,146 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+@use 'mixins' as *;
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap');
+
+// Reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+
+  @include scale-2k {
+    font-size: 21.33px;
+  }
+
+  @include scale-4k {
+    font-size: 32px;
+  }
+}
+
+body {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $color-black;
+  background-color: $color-white;
+  min-width: $breakpoint-mobile;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+}
+
+h1 {
+  @include heading-1;
+}
+
+h2 {
+  @include heading-2;
+}
+
+h3 {
+  @include heading-3;
+}
+
+p {
+  @include body-text;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-gray-400;
+  }
+}
+
+// Lists
+ul, ol {
+  list-style: none;
+}
+
+// Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Buttons
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// Inputs
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: $color-black;
+  color: $color-white;
+}
+
+.page-wrapper {
+  container-type: inline-size;
+  container-name: page;
+  width: 100%;
+}
+
+.container {
+  @include container;
+
+  @include desktop {
+    max-width: $container-max-width-wide;
+    padding: 0 $container-padding;
+  }
+}
+
+// Container query based container
+@container page (min-width: 1920px) {
+  .container--cq {
+    max-width: $container-max-width-wide;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+}
+
+// Section spacing
+.section {
+  padding: $spacing-4xl 0;
+
+  @include mobile {
+    padding: $spacing-2xl 0;
+  }
+}
+
+// Visually hidden utility
+.visually-hidden {
+  @include visually-hidden;
+}

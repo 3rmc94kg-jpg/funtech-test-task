@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectUserFactors">
+    <factor id="completionFinishedType">
+      <dailyData date="18-11-2021">
+        <observation name="cancelled" value="9,0" />
+      </dailyData>
+      <dailyData date="13-02-2024">
+        <observation name="cancelled" value="1,0" />
+      </dailyData>
+    </factor>
+    <factor id="completionUsage">
+      <dailyData date="18-11-2021">
+        <observation name="count" value="9,0" />
+      </dailyData>
+      <dailyData date="13-02-2024">
+        <observation name="count" value="1,0" />
+      </dailyData>
+    </factor>
+  </component>
+</project>

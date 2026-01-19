@@ -1,0 +1,163 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/breakpoints' as *;
+@use '@/shared/styles/mixins' as *;
+
+.cta {
+  padding: $spacing-4xl 0;
+  background-color: $color-white;
+
+  @include mobile {
+    padding: $spacing-2xl 0 16rem;
+  }
+
+  @include tablet {
+    padding: $spacing-2xl $container-padding
+  }
+}
+
+.container {
+  @include container;
+  @include flex(space-between, center);
+  position: relative;
+  background-color: $color-black;
+  border-radius: 1.875rem;
+  padding: 2rem;
+  overflow: hidden;
+  height: 19.4375rem;
+  margin: auto;
+
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+    border-radius: 0.929rem;
+    padding: 1.5rem 1rem;
+    padding-bottom: 5rem;
+    overflow: visible;
+    height: auto;
+    width: auto;
+    margin: 0 $container-padding;
+  }
+
+  @include tablet {
+    width: auto;
+    margin: 0 auto;
+  }
+
+}
+
+.content {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    align-items: center;
+  }
+}
+
+.title {
+  font-family: $font-family-poppins;
+  font-size: 2.8125rem;
+  font-weight: $font-weight-semibold;
+  line-height: 3rem;
+  letter-spacing: 0.028rem;
+  color: $color-white;
+  margin-bottom: $spacing-md;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.description {
+  font-family: $font-family-poppins;
+  font-size: 1.25rem;
+  font-weight: $font-weight-medium;
+  line-height: 1.375rem;
+  color: $color-text-muted;
+  opacity: 0.6;
+  margin-bottom: $spacing-xl;
+
+  @include mobile {
+    font-size: $font-size-base;
+  }
+}
+
+.actions {
+  @include flex(flex-start, center);
+  gap: $spacing-lg;
+  margin-top: auto;
+
+  @include mobile {
+    justify-content: center;
+  }
+}
+
+.exploreButton {
+  width: 11.25rem;
+  height: 4.25rem;
+  border-radius: 0.75rem;
+  background-color: $color-white;
+  color: $color-black;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.335rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.013rem;
+  border: none;
+
+  &:hover {
+    background-color: rgba($color-white, 0.9);
+  }
+
+  @include mobile {
+    width: 5.6875rem;
+    height: 2.125rem;
+    border-radius: 0.378rem;
+    font-size: 0.661rem;
+    letter-spacing: 0.007rem;
+  }
+}
+
+.sellButton {
+  width: 11.25rem;
+  height: 4.25rem;
+  border-radius: 0.75rem;
+  background-color: transparent;
+  color: $color-white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.335rem;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.013rem;
+  border: 2px solid $color-white;
+
+  &:hover {
+    background-color: rgba($color-white, 0.1);
+  }
+
+  @include mobile {
+    width: 5.6875rem;
+    height: 2.125rem;
+    border-radius: 0.378rem;
+    font-size: 0.661rem;
+    letter-spacing: 0.007rem;
+    border-width: 1px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 23.0625rem;
+  height: 15.5625rem;
+  border-radius: 0.987rem;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @include mobile {
+    position: absolute;
+    bottom: -5.5rem;
+    width: 15.6875rem;
+    height: 8.125rem;
+    border-radius: 0.575rem;
+  }
+}
